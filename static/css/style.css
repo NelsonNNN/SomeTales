@@ -1,5 +1,5 @@
 body {
-    background-color: aqua;
+    background-color: rgb(144, 153, 14);
     font-family: cursive;
 }
 .body-div-navigation{
@@ -7,11 +7,12 @@ body {
     border: 20px;
     border-color: deepskyblue;
 }
-.nav-id{
+.nav-id:hover{
     position: relative;
     background-color: rgb(251, 255, 0);
 }
 .nav-id2:hover{
     position: relative;
     background-color: orangered;
+    background-position: right;
 }

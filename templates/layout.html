@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
     {% if title %}
         <title>FlaskBlog - {{ title }}</title>
     {% else %}
