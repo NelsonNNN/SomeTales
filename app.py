@@ -38,7 +38,7 @@ def registration():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+        if form.email.data == 'nelson@gmail.com' and form.password.data == 'nelliville51':
             return redirect(url_for('home'))
         else:
             flash('Failed. Please check username and password', 'danger')
