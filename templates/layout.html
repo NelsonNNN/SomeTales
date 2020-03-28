@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    {% if title %}
+        <title>FlaskBlog - {{ title }}</title>
+    {% else %}
+        <title>FlaskBlog</title>
+    {% endif %}
+</head> 
+<body>
+    <div class='body-div-navigation'>
+        <div class = 'div-navigation'>
+            <nav class = 'navigation'>
+                <a class= 'nav-id' href = {{ url_for('home')}}>Home</a>
+                <a class = 'nav-id'href = {{ url_for('about')}}>About</a>
+                <a class = 'nav-id2'href = {{ url_for('login')}}>Log In</a>
+                <a class = 'nav-id2'href = {{ url_for('registration')}}>Registration</a>
+            </nav>
+        </div>
+        <main>
+        <div class = 'flashed-messages'>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    {% block content %} {% endblock %}
+</body>
+</html>

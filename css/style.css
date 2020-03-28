@@ -1,0 +1,17 @@
+body {
+    background-color: aqua;
+    font-family: cursive;
+}
+.body-div-navigation{
+    background-color: blue;
+    border: 20px;
+    border-color: deepskyblue;
+}
+.nav-id{
+    position: relative;
+    background-color: rgb(251, 255, 0);
+}
+.nav-id2:hover{
+    position: relative;
+    background-color: orangered;
+}
