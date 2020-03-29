@@ -23,7 +23,7 @@ def home():
     return render_template('home.html', post=post)
 
 @app.route('/about')
-def about():
+def about():  
     return render_template('about.html', title='About')
 
 @app.route('/register', methods = ['GET', 'POST'])
