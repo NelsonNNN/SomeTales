@@ -10,8 +10,8 @@
 </head> 
 <body>
     <header class='nav-header'>
-        <div class = 'nav-div'>
-            <nav class = 'navigation'>
+        <nav class = 'navigation'>
+            <div class='div-class'>
                 <div class='nav-class1'>
                     <a class= 'nav-class' href = {{ url_for('home')}}>Home</a>
                     <a class = 'nav-class'href = {{ url_for('about')}}>About</a>
@@ -20,22 +20,25 @@
                     <a class = 'nav-class'href = {{ url_for('login')}}>Log In</a>
                     <a class = 'nav-class'href = {{ url_for('registration')}}>Registration</a>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
-    <main>
-        <div class = 'flashed-messages'>
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div>
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
+    </div>
+    <main class='main'>
+        <div class='main-div'>
+            <div class='flashed-messages'>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            {% block content %} {% endblock %}
         </div>
-        {% block content %} {% endblock %}
     </main>
 </body>
 </html>

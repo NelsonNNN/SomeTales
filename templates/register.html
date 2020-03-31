@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 {% block content %}
     <h class='header'>This is the Registration page</h>
-    <div>
+    <div class='form'>
         <form method='POST' action = "">
             {{ form.hidden_tag() }}
-            <fieldset>
-                <legend>  Registration </legend>
+            <fieldset class='fieldset'>
+                <legend class='legend'>  Registration </legend>
                 <div>  
                     {{ form.username.label }}
                     <div>
@@ -67,11 +67,11 @@
                     </div>
                 </div>
             </fieldset>
-                <div>
+                <div class='submit'>
                     {{ form.submit }}
                 </div>
         </form>
-        <div>
+        <div class='here'>
             <p>Already have an account? Click <a href = {{ url_for('login')}}>here</a></p>
         </div>
     </div>        
