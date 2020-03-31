@@ -6,69 +6,69 @@
             {{ form.hidden_tag() }}
             <fieldset class='fieldset'>
                 <legend class='legend'>  Registration </legend>
-                <div>  
-                    {{ form.username.label }}
+                <div class = 'form-curly'>  
+                    {{ form.username.label(class_ ='control-label') }}
                     <div>
                         {% if form.username.errors %}
-                            {{ form.username }}
+                            {{ form.username(class_='control-field-error') }}
                             <div>
                                 {% for error in form.username.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.username }}
+                            {{ form.username(class_='control-field') }}
                         {% endif %}
                     </div>
                 </div>
-                <div>  
-                    {{ form.email.label }}
+                <div class = 'form-curly'>  
+                    {{ form.email.label(class_='control-label') }}
                     <div>
                         {% if form.email.errors %}
-                            {{ form.email }}
+                            {{ form.email(class_='control-field-error') }}
                             <div>
                                 {% for error in form.email.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.email }}
+                            {{ form.email(class_='control-field') }}
                         {% endif %}
                     </div>
                 </div>
-                <div>
-                    {{ form.password.label }}
+                <div class = 'form-curly'>
+                    {{ form.password.label(class_='control-label') }}
                     <div>
                         {% if form.password.errors %}
-                            {{ form.email}}
+                            {{ form.email(class_='control-field-error')}}
                             <div>
                                 {% for error in form.password.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.password }}
+                            {{ form.password(class_='control-field') }}
                         {% endif %}
                     </div>
                 </div>
-                <div>
-                    {{ form.confirm_password.label }}
+                <div class = 'form-curly'>
+                    {{ form.confirm_password.label(class_='control-label') }}
                     <div>
                         {% if form.confirm_password.errors %}
-                            {{ form.confirm_password}}
+                            {{ form.confirm_password(class_='control-field-error')}}
                             <div>
                                 {% for error in form.confirm_password.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.confirm_password }}
+                            {{ form.confirm_password(class_='control-field') }}
                         {% endif %}
                     </div>
                 </div>
             </fieldset>
                 <div class='submit'>
-                    {{ form.submit }}
+                    {{ form.submit(class_='submit-button') }}
                 </div>
         </form>
         <div class='here'>

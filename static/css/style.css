@@ -1,10 +1,11 @@
 body{
-    background: linear-gradient(to left, rgb(34, 8, 148), rgba(29, 1, 36, 0))
+    background: linear-gradient(to left, rgb(34, 8, 148), rgba(29, 1, 36, 0));
+    margin-top: 0;
+    margin-left: 0; 
 }
 /*layout page*/
 .div-class{
     position: relative;
-    width: 1500px;
     height: 40px;
     background-color: darkslateblue;
 }
@@ -59,7 +60,37 @@ body{
 .form{
     position: absolute;
     top: 50px;
+    width: 300px;
+    left: 25%;
 }
 .legend{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.here{
+    font-family: sans-serif;
+    font-size: small;
+}
+.form-curly{
+    margin-bottom: 20px;
+}
+.control-label{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.control-field-error{
+    border: 5px solid red;
+    width: 90%;
+}
+.control-field{
+    width: 90%;
+}
+.control-label-remember{
+    font-size: small;
+}
+.submit-button{
+    background-color: blue;
+    color: antiquewhite;
+}
+.submit-button:hover{
+    background-color: rgb(133, 148, 228);
+    transform: scale(1.1, 1);
 }
