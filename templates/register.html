@@ -13,7 +13,7 @@
                             {{ form.username(class_='control-field-error') }}
                             <div>
                                 {% for error in form.username.errors %}
-                                    <span>{{ error }}</span>
+                                    <span class='error'>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
@@ -28,7 +28,7 @@
                             {{ form.email(class_='control-field-error') }}
                             <div>
                                 {% for error in form.email.errors %}
-                                    <span>{{ error }}</span>
+                                    <span class='error'>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
@@ -43,7 +43,7 @@
                             {{ form.email(class_='control-field-error')}}
                             <div>
                                 {% for error in form.password.errors %}
-                                    <span>{{ error }}</span>
+                                    <span class='error'>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
@@ -58,7 +58,7 @@
                             {{ form.confirm_password(class_='control-field-error')}}
                             <div>
                                 {% for error in form.confirm_password.errors %}
-                                    <span>{{ error }}</span>
+                                    <span class='error'>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
