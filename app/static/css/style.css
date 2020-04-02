@@ -64,6 +64,9 @@ body{
     width: 300px;
     left: 25%;
 }
+.fieldset{
+    background-color: rgb(113, 155, 192);
+}
 .legend{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
