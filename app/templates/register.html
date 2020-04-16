@@ -70,9 +70,9 @@
                 <div class='submit'>
                     {{ form.submit(class_='submit-button') }}
                 </div>
+            <div class='here'>
+                <p>Already have an account? Click <a href = {{ url_for('login')}}>here</a></p>
+            </div>
         </form>
-        <div class='here'>
-            <p>Already have an account? Click <a href = {{ url_for('login')}}>here</a></p>
-        </div>
     </div>        
 {% endblock %}

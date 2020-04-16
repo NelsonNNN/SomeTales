@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel='stylesheet' type='text/css' href={{url_for('static', filename='css/style.css')}}>
     {% if title %}
         <title>FlaskBlog - {{ title }}</title>
     {% else %}
@@ -8,9 +9,10 @@
     {% endif %}
 </head> 
 <body>
-    <header class='nav-header'>
-        <nav class = 'navigation'>
-            <div class='div-class'>
+    <header class='main-header'>
+        <div class='div-header'> 
+            <a class='a-image' href={{url_for('home')}}><img class='header-image' src={{url_for('static', filename='profilepic/logo.jpg')}}></a>
+            <nav class = 'navigation'>
                 <div class='nav-class1'>
                     <a class= 'nav-class' href = {{ url_for('home')}}>Home</a>
                     <a class = 'nav-class'href = {{ url_for('about')}}>About</a>
@@ -25,8 +27,8 @@
                         <a class = 'nav-class'href = {{ url_for('registration')}}>Registration</a>
                     {% endif %}
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
     </div>
     <main class='main'>

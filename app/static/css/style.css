@@ -1,105 +1,124 @@
-body{
-    background: linear-gradient(to top, rgb(34, 8, 148), rgba(29, 1, 36, 0));
-    height: 100%;
-    margin: 0;
-    height: 100vw;
+html, body{
+   margin: 0;
+   height: 100%;
 }
 /*layout page*/
-.div-class{
-    position: relative;
-    height: 40px;
-    background-color: darkslateblue;
+.main-header{
+    box-sizing: border-box;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,139,139, 0.6);
+    width: 100%;
+    z-index: 1;
+}
+.div-header{
+    display: flex;
+    justify-content: flex-end;
+}
+.a-image{
+    margin-right: auto;
+}
+.header-image{
+    border-radius: 50px;
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .nav-class1{
-    position: absolute;
-    top: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+   box-sizing: border-box;
+   padding: 9px;
+   text-align: center;
+   vertical-align: middle;
+   margin-right: 30px;
 }
 .nav-class2{
-    position: relative;
-    top: 20px;
-    left: 70%;
-    font-family: Arial, Helvetica, sans-serif;
+   box-sizing: border-box;
+   padding: 9px;
+   text-align: center;
+   vertical-align: middle;
 }
 .nav-class{
-    margin-left: 50px;
-    margin-right: 50px;
-    color: antiquewhite;
+    color: white;
+    text-decoration: none;
 }
 .nav-class:hover{
     background-color: darkgray;
     box-shadow: inset 4px 5px 11px 15px rgba(96, 171, 241, 0.4);
 }
 .main{
-    position: relative;
+    top: 10em;
 }
-.main-div{
-    position: relative;
-}
+
 .flashed-messages{
-    position: absolute;
     font-family: sans-serif;
     font-size: small;
+    background-color: rgba(31, 109, 31, 0.5);
+    color: rgb(31, 109, 31);
 }
 
-/*home page*/
+/*registration/login page*/
 .header{
-    position: absolute;
-    top: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: overline;
 }
-.article{
-    position: relative;
-    top: 50px;
-    border: 10px;
-    border-color: black;
-}
-.posts{
-    position: absolute;
-}
-
-/*registration page*/
 .form{
     position: absolute;
-    top: 50px;
-    width: 300px;
-    left: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% -50%);
+    border: none;
 }
 .fieldset{
-    background-color: rgb(113, 155, 192);
+    border: none;
+    box-sizing: border-box;
+    padding: 9px, 25px;
 }
 .legend{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.here{
     font-family: sans-serif;
-    font-size: small;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .form-curly{
     margin-bottom: 20px;
+    width: 100%;
 }
-.control-label{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.control.label{
+    font-family: sans-serif;
 }
 .control-field-error{
-    border: 2px solid rgba(255, 0, 0, 0.8);
-    width: 90%;
-}
-.control-field{
-    width: 90%;
-}
-.control-label-remember{
-    font-size: small;
+    border: 1px solid red;
 }
 .error{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-    color:  rgba(255, 0, 0, 1);
+    color: rgba(255, 0, 0, 0.7);
+}
+.control-field{
+    border: none;
+    border-bottom: 2px solid black;
+    margin: 0;
+}
+.submit{
+    width: 100%;
 }
 .submit-button{
-    background-color: blue;
-    color: antiquewhite;
+    width: 100%;
+    background-color: green;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease 0.3s;
 }
 .submit-button:hover{
-    background-color: rgb(133, 148, 228);
-    transform: scale(1.1, 1);
+    background-color: rgba(0, 128, 0, 0.6);
+}
+.here{
+    font-size: small;
+}
+.here a:visited{
+    color: red;
 }
