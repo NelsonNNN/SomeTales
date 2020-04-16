@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div>
+        <form method='POST' action = "">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>{{legend}}</legend>
+                <div>
+                    {{ form.title.label(class_='control-label')}}
+                    {% if form.title.errors %}
+                        {{form.title(class_='control-field-error') }}
+                        <div>
+                            {% for error in form.title.errors%}
+                                <span class='error'>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {%else %}
+                        {{ form.title(class_='control-field') }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.content.label(class_='control-label')}}
+                    {% if form.content.errors %}
+                        {{form.content(class_='control-field-error')}}
+                        <div>
+                            {% for error in form.content.errors%}
+                                <span class='error'>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {%else %}
+                        {{ form.content(class_='control-field') }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit}}
+            </div>
+        </form>
+    </div>
+{% endblock  %}

@@ -3,11 +3,24 @@
     <h class='header'>This is the Home page</h>
     <article class= 'article'>
         <div class='posts'>
-            {% for posts in post %}
-                <div>{{ posts.Author }}</div>
-                <div>{{ posts.Title }}</div>
-                <div>{{ posts.Date }}</div>
+            {% for post in post.items %}
+                <img src="{{ url_for('static', filename='profilepic/{}'.format(post.author.image)) }}">
+                <a href={{url_for('user_page', username=post.author.username)}}>{{ post.author.username }}</a>
+                <div>{{ post.date_posted.strftime('%Y-%m-%d')}}</div>
+                <div><a href={{ url_for('edit_post', post_id=post.id)}}>{{ post.title }}</a></div>
+                <div>{{ post.content}}</div>
             {% endfor %}
         </div>
     </article>
+    {% for page_num in post.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2)%}
+        {% if page_num %}
+            {% if post.page == page_num %}
+                <a style='color: red;' href={{url_for('home', page=page_num)}}>{{page_num}}</a>
+            {%else %}
+                <a href={{url_for('home', page=page_num)}}>{{page_num}}</a>
+            {% endif %}
+        {% else %}
+        ...
+        {% endif %}
+    {% endfor %}
 {% endblock %}

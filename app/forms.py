@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, length, Email, EqualTo, ValidationError
 from app.models import User
 
@@ -46,3 +46,8 @@ class UpdateForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('Email already taken.Please choose another')
+
+class UpdatePost(FlaskForm):
+    title=StringField('Post Title', validators=[DataRequired()])
+    content=TextAreaField('Content', validators=[DataRequired()])
+    submit=SubmitField('Post')

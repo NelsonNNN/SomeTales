@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h class='header'>This is the Home page</h>
+    <article class= 'article'>
+        {% if post.author == current_user %}
+            <a href={{url_for('update_post', post_id=post.id)}}>Update</a>
+            <button name='Delete' type='delete'>Delete</button>
+        {% endif %}
+        <div class='posts'>
+                <div>{{ post.author.username }}</div>
+                <div>{{ post.date_posted.strftime('%Y-%m-%d')}}</div>
+                <div>{{ post.title }}</div>
+                <div>{{ post.content}}</div>
+        </div>
+    </article>
+{% endblock %}

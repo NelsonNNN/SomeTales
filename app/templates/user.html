@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content%}
+    <h1>{{ user.username }} ({{post.total}})</h1>
+    <div>
+        {% for post in post.items %}
+            <img src={{ url_for('static', filename='profilepic/{}'.format(post.author.image))}}>
+            <a href='#'>{{ post.author.username}}</a>
+            <small>{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+        {% endfor %}
+    </div>
+    {% for page_num in post.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2)%}
+        {% if page_num %}
+            {% if post.page == page_num %}
+                <a style='color:red;' href={{ url_for('user_page', username=user.username, page=page_num)}}>{{ page_num }}</a>
+            {% else %}
+                <a href={{ url_for('user_page', username=user.username, page=page_num)}}>{{ page_num }}</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}
