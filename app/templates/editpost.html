@@ -1,16 +1,26 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h class='header'>This is the Home page</h>
-    <article class= 'article'>
-        {% if post.author == current_user %}
-            <a href={{url_for('update_post', post_id=post.id)}}>Update</a>
-            <button name='Delete' type='delete'>Delete</button>
-        {% endif %}
-        <div class='posts'>
-                <div>{{ post.author.username }}</div>
-                <div>{{ post.date_posted.strftime('%Y-%m-%d')}}</div>
-                <div>{{ post.title }}</div>
-                <div>{{ post.content}}</div>
-        </div>
-    </article>
+    <h class='header'>This is the Post page</h>
+    <div class='posts'>
+        <article class= 'article'>
+            {% if post.author == current_user %}
+                <div class='update'>
+                    <a href={{url_for('update_post', post_id=post.id)}}>Update</a>
+                        <div class='div-delete'>Delete
+                            <form action='{{url_for('delete_post', post_id=post.id)}}' method='POST'>
+                                <input class='delete' value='Delete' type='submit'>
+                            </form>
+                        </div>
+                </div>
+            {% endif %}
+                <header>
+                    <a href={{url_for('user_page', username=post.author.username)}}>{{ post.author.username }}</a>
+                    <small>{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
+                </header>
+                <div class='para'>
+                    <h2><a href={{url_for('edit_post', post_id=post.id)}}>{{ post.title }}</a></h2>
+                    <div>{{ post.content}}</div>
+                </div>
+        </article>
+    </div>
 {% endblock %}
