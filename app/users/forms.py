@@ -1,10 +1,9 @@
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileField, FileAllowed
-from flask_login import current_user
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired, length, Email, EqualTo, ValidationError
+from flask_wtf.file import FileAllowed, FileField
+from wtforms import StringField, SubmitField, BooleanField, PasswordField
+from wtforms.validators import DataRequired, EqualTo, length, ValidationError, Email
 from app.models import User
-
+from flask_login import current_user
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators = [DataRequired(), length(min =2, max =20)])
@@ -47,7 +46,17 @@ class UpdateForm(FlaskForm):
             if user:
                 raise ValidationError('Email already taken.Please choose another')
 
-class UpdatePost(FlaskForm):
-    title=StringField('Post Title', validators=[DataRequired()])
-    content=TextAreaField('Content', validators=[DataRequired()])
-    submit=SubmitField('Post')
+class ResetRequest(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Request Password Reset')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is None:
+            raise ValidationError('That email has not been registered')
+
+class ResetPassword(FlaskForm):
+    password = PasswordField('Password', validators = [DataRequired()])
+    confirm_password = PasswordField('Confirm password', validators = [DataRequired(), EqualTo('password')])
+    submit = SubmitField('Reset Password')
+

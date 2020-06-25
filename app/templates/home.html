@@ -1,28 +1,32 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h class='header'>This is the Home page</h>
-    <div class='posts'>
-        <article class= 'article'>
-                {% for post in post.items %}
-                    <div class='post-div'>
-                        <img src="{{ url_for('static', filename='profilepic/{}'.format(post.author.image)) }}">
-                        <header>
-                            <a href={{url_for('user_page', username=post.author.username)}}>{{ post.author.username }}</a>
-                            <small>{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
-                        </header>
-                        <div class='para'>
-                            <h2><a href={{ url_for('edit_post', post_id=post.id)}}>{{ post.title }}</a></h2>
-                            <p>{{ post.content}}</p>
-                        </div>
+    <div>
+        <h1>This is the Home page</h1>
+    </div>
+    <div>
+        <article>
+            {% for post in post.items %}
+                <div>
+                    <div>
+                        <img src='{{ url_for('static', filename='profilepic/{}'.format(post.author.image)) }}'>
                     </div>
-                {% endfor %}
+                    <div>
+                        <a href={{url_for('users.user_page', username=post.author.username)}}>{{ post.author.username }}</a>
+                        <small>{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
+                    </div>
+                    <div>
+                        <h3><a href={{ url_for('posts.edit_post', post_id=post.id)}}>{{ post.title }}</a></h3>
+                        <p>{{ post.content}}</p>
+                    </div>
+                </div>
+            {% endfor %}
         </article>
         {% for page_num in post.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2)%}
             {% if page_num %}
                 {% if post.page == page_num %}
-                    <a  class='current-page'href={{url_for('home', page=page_num)}}>{{page_num}}</a>
+                    <a href={{url_for('main.home', page=page_num)}}>{{page_num}}</a>
                 {%else %}
-                    <a class='page' href={{url_for('home', page=page_num)}}>{{page_num}}</a>
+                    <a href={{url_for('main.home', page=page_num)}}>{{page_num}}</a>
                 {% endif %}
             {% else %}
             ...
