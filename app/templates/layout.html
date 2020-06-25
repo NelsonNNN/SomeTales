@@ -11,8 +11,10 @@
 <body>
     <header>
         <div> 
-            <a href={{url_for('main.home')}}><img src={{url_for('static', filename='profilepic/logo.jpg')}}></a>
             <nav>
+                <div>
+                    <a href={{url_for('main.home')}}><img src={{url_for('static', filename='profilepic/logo.jpg')}}></a>
+                </div>
                 <div>
                     <a href = {{ url_for('main.home')}}>Home</a>
                     <a href = {{ url_for('main.about')}}>About</a>
