@@ -1,45 +1,47 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <div>
-        <h1> Reset Your Password</h1>
-    </div>
-    <div>
-        <form  method='POST', action="">
-            {{ form.hidden_tag() }}
-            <fieldset>
-                <legend>Reset Password</legend>
-                    <div>
-                        <div>
-                            {{ form.password.label }}
-                            <div>
+    <div class="reset-token">
+        <div class="title">
+            <h1> Reset Your Password</h1>
+        </div>
+        <div class="form-div">
+            <form  method='POST', action="">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend>Reset Password</legend>
+                        <div class="input-div">
+                            {{ form.password.label (class_="form-label") }}
                                 {% if form.password.errors %}
-                                    {{ form.password }}
+                                    {{ form.password(class_="form-input") }}
+                                    <div class="error-div">
                                         {% for error in form.password.errors %}
                                             <span>{{ error}}</span>
                                         {% endfor %}
+                                    </div>
                                 {% else %}
-                                    {{form.password }}
+                                    {{form.password(class_='form-input') }}
                                 {% endif %}
                             </div>
                         </div>
-                        <div>
-                            {{ form.confirm_password.label }}
-                            <div>
+                        <div class="input-div">
+                            {{ form.confirm_password.label(class_="form-label") }}
                                 {% if form.confirm_password.errors %}
-                                    {{ form.confirm_password }}
+                                    {{ form.confirm_password(class_="form-input") }}
+                                    <div class="error-div">
                                         {% for error in form.confirm_password.errors %}
                                             <span>{{ error}}</span>
                                         {% endfor %}
+                                    </div>
                                 {% else %}
-                                    {{form.confirm_password }}
+                                    {{form.confirm_password(class_="form-input") }}
                                 {% endif %}
                             </div>
                         </div>
-                    </div>        
-            </fieldset> 
-            <div>
-                {{ form.submit }}
-            </div>            
-        </form>
+                </fieldset> 
+                <div class="submit-div">
+                    {{ form.submit(class_="submit-btn") }}
+                </div>            
+            </form>
+        </div>
     </div>
 {% endblock %}

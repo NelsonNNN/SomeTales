@@ -1,58 +1,63 @@
 {% extends 'layout.html' %}
 {% block content %}
-<div>
-    <div>
-        <img src= '{{ image_file }}'>
+<div class="account-page">
+    <div class="title">
+        <h1>This is your Account Page.</h1>
     </div>
-    <div>
-        <a href={{url_for('users.user_page', username=current_user.username)}}><h2>{{ current_user.username }}</h2></a>
-        <h3>{{ current_user.email}}</h3>
-    </div>
-</div>
-<div>
-    <form method='POST' action='' enctype='multipart/form-data'>
-        {{ form.hidden_tag() }}
-        <fieldset>
-            <legend>Update Account Details</legend>
-            <div>
-                {{ form.username.label }}
-                <div>
-                    {% if form.username.errors %}
-                        {{ form.username }}
-                            {% for error in form.username.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                    {% else %}
-                        {{form.username }}
-                    {% endif %}
-                </div>
-            </div>
-            <div>
-                {{ form.email.label}}
-                <div>
-                    {% if form.email.errors %}
-                        {{ form.email }}
-                            {% for error in form.email.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                    {% else %}
-                        {{form.email}}
-                    {% endif %}
-                </div>
-            </div>
-            <div>
-                {{ form.image.label }}
-                {{ form.image }}
-                {% if form.image.errors %}
-                    {% for error in form.image.errors %}
-                        <br><span>{{ error }}</span>
-                    {% endfor%}
-                {% endif %}
-            </div>
-        </fieldset>
-        <div>
-            {{ form.submit}}
+    <div class="personal-info">
+        <div class="image">
+            <img src= '{{ image_file }}'>
         </div>
-    </form>
+        <div class="user-title">
+            <a href={{url_for('users.user_page', username=current_user.username)}}><h2>{{ current_user.username }}</h2></a>
+            <h3>{{ current_user.email}}</h3>
+        </div>
+    </div>
+    <div class="form-div account">
+        <form method='POST' action='' enctype='multipart/form-data'>
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>Update Account Details</legend>
+                <div class="input-div">
+                    {{ form.username.label (class_="form-label") }}
+                        {% if form.username.errors %}
+                            {{ form.username (class_="form-input")}}
+                            <div class="error-div">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{form.username (class_='form-input')}}
+                        {% endif %}
+                </div>
+                <div class="input-div">
+                    {{ form.email.label (class_="form-label") }}
+                        {% if form.email.errors %}
+                            {{ form.email }}
+                            <div class="error-div">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{form.email(class_='form-input')}}
+                        {% endif %}
+                </div>
+                <div class="input-div">
+                    {{ form.image.label (class_="form-label") }}
+                    {{ form.image (class_="submit-btn") }}
+                    {% if form.image.errors %}
+                        {% for error in form.image.errors %}
+                            <br><span>{{ error }}</span>
+                        {% endfor%}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="submit-div">
+                {{ form.submit(class_="submit-btn")}}
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

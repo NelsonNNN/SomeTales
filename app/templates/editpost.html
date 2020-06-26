@@ -1,26 +1,31 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <div>
-        <h1>This is the Edit Post page</h1>
-    </div>
-    <div>
-        <article>
+    <div class="edit-post">
+        <div  class="title">
+            <h1>This is the Edit Post page</h1>
+        </div>
+        <div class="post-container">
             {% if post.author == current_user %}
-                <div>
+                <div class="edit-btns">
                     <a href={{url_for('posts.update_post', post_id=post.id)}}>Update</a>
                     <form action='{{url_for('posts.delete_post', post_id=post.id)}}' method='POST'>
                         <input type="submit" value="Delete">
                     </form>
                 </div>
             {% endif %}
-                <div>
+            <div class="article">
+                <div class="post-image">
+                    <img src='{{ url_for('static', filename='profilepic/{}'.format(post.author.image)) }}'>
+                </div>
+                <div class="post-author">
                     <a href={{url_for('users.user_page', username=post.author.username)}}>{{ post.author.username }}</a>
                     <small>{{ post.date_posted.strftime('%Y-%m-%d')}}</small>
                 </div>
-                <div>
+                <div class="post-content">
                     <a href={{url_for('posts.edit_post', post_id=post.id)}}>{{ post.title }}</a>
                     <p>{{ post.content}}</p>
                 </div>
-        </article>
+            </div>
+        </div>
     </div>
 {% endblock %}

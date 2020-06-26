@@ -1,74 +1,76 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <div>
-        <h1>This is the Registration page</h1>
+    <div class="form-page">
+        <div class="title">
+            <h1>This is the Registration page</h1>
+        </div>
+        <div class="form-div">
+            <form method='POST' action = "">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend>Registration</legend>
+                    <div class="input-div">  
+                        {{ form.username.label (class_="form-label") }}
+                            {% if form.username.errors %}
+                                {{ form.username (class_="form-input") }}
+                                <div  class="error-div">
+                                    {% for error in form.username.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.username(class_='form-input')  }}
+                            {% endif %}
+                    </div>
+                    <div class="input-div">  
+                        {{ form.email.label(class_="form-label")}}
+                            {% if form.email.errors %}
+                                {{ form.email(class_="form-input") }}
+                                <div class="error-div">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.email(class_="form-input") }}
+                            {% endif %}
+                    </div>
+                    <div class="input-div">
+                        {{ form.password.label (class_="form-label")}}
+                            {% if form.password.errors %}
+                                {{ form.email(class_="form-input") }}
+                                <div class="error-div">
+                                    {% for error in form.password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.password (class_="form-input")}}
+                            {% endif %}
+                    </div>
+                    <div class="input-div">
+                        {{ form.confirm_password.label (class_="form-label")}}
+                        <div>
+                            {% if form.confirm_password.errors %}
+                                {{ form.confirm_password (class_="form-input")}}
+                                <div class="error-div">
+                                    {% for error in form.confirm_password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.confirm_password(class_="form-input") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </fieldset>
+                    <div class="submit-div">
+                        {{ form.submit(class_="submit-btn") }}
+                    </div>
+                <div  class="request">
+                    <small>Already have an account? Click <a href = {{ url_for('users.login')}}>here</a></small>
+                </div>
+            </form>
+        </div>        
     </div>
-    <div>
-        <form method='POST' action = "">
-            {{ form.hidden_tag() }}
-            <fieldset>
-                <legend>Registration</legend>
-                <div>  
-                    {{ form.username.label }}
-                    <div>
-                        {% if form.username.errors %}
-                            {{ form.username }}
-                                {% for error in form.username.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                        {% else %}
-                            {{ form.username }}
-                        {% endif %}
-                    </div>
-                </div>
-                <div>  
-                    {{ form.email.label}}
-                    <div>
-                        {% if form.email.errors %}
-                            {{ form.email(class_='control-field-error') }}
-                                {% for error in form.email.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                        {% else %}
-                            {{ form.email }}
-                        {% endif %}
-                    </div>
-                </div>
-                <div>
-                    {{ form.password.label }}
-                    <div>
-                        {% if form.password.errors %}
-                            {{ form.email }}
-                                {% for error in form.password.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                        {% else %}
-                            {{ form.password }}
-                        {% endif %}
-                    </div>
-                </div>
-                <div>
-                    {{ form.confirm_password.label }}
-                    <div>
-                        {% if form.confirm_password.errors %}
-                            {{ form.confirm_password }}
-                            <div>
-                                {% for error in form.confirm_password.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.confirm_password }}
-                        {% endif %}
-                    </div>
-                </div>
-            </fieldset>
-                <div>
-                    {{ form.submit }}
-                </div>
-            <div>
-                <p>Already have an account? Click <a href = {{ url_for('users.login')}}>here</a></p>
-            </div>
-        </form>
-    </div>        
 {% endblock %}
