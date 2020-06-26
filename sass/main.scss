@@ -106,7 +106,7 @@ main{
             .form-div{
                 position: relative;
                 top: 10vh;
-                left: 30%;
+                margin-left: 4rem;
                 background: transparent;
                 width: 50%;
                 &.account{
@@ -133,6 +133,10 @@ main{
                                 border-radius: 5px;
                                 padding: 0.5rem;
                                 color: set-text-color($primary-color);
+                                &.content{
+                                    height: 50vh;
+                                    width: 50vw;
+                                }
                             }
                             span{
                                 width: fit-content;

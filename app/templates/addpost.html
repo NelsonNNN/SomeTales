@@ -25,14 +25,14 @@
                     <div class="input-div">
                         {{ form.content.label (class_="form-label")}}
                         {% if form.content.errors %}
-                            {{ form.content (class_='form-input')}}
+                            {{ form.content (class_='form-input content')}}
                             <div class="error-div">
                                 {% for error in form.content.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {%else %}
-                            {{ form.content (class_='form-input')}}
+                            {{ form.content (class_='form-input content')}}
                         {% endif %}
                     </div>
                 </fieldset>

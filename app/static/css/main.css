@@ -85,7 +85,7 @@ main {
     main .main-div .form-page .form-div, main .main-div .account-page .form-div, main .main-div .add-post .form-div, main .main-div .reset-token .form-div, main .main-div .request-token .form-div {
       position: relative;
       top: 10vh;
-      left: 30%;
+      margin-left: 4rem;
       background: transparent;
       width: 50%; }
       main .main-div .form-page .form-div.account, main .main-div .account-page .form-div.account, main .main-div .add-post .form-div.account, main .main-div .reset-token .form-div.account, main .main-div .request-token .form-div.account {
@@ -108,6 +108,9 @@ main {
               border-radius: 5px;
               padding: 0.5rem;
               color: #020024; }
+              main .main-div .form-page .form-div form fieldset .input-div .form-input.content, main .main-div .account-page .form-div form fieldset .input-div .form-input.content, main .main-div .add-post .form-div form fieldset .input-div .form-input.content, main .main-div .reset-token .form-div form fieldset .input-div .form-input.content, main .main-div .request-token .form-div form fieldset .input-div .form-input.content {
+                height: 50vh;
+                width: 50vw; }
             main .main-div .form-page .form-div form fieldset .input-div span, main .main-div .account-page .form-div form fieldset .input-div span, main .main-div .add-post .form-div form fieldset .input-div span, main .main-div .reset-token .form-div form fieldset .input-div span, main .main-div .request-token .form-div form fieldset .input-div span {
               width: fit-content;
               background-color: red;
