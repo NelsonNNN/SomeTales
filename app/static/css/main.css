@@ -89,7 +89,8 @@ main {
       background: transparent;
       width: 50%; }
       main .main-div .form-page .form-div.account, main .main-div .account-page .form-div.account, main .main-div .add-post .form-div.account, main .main-div .reset-token .form-div.account, main .main-div .request-token .form-div.account {
-        top: -35vh; }
+        top: -35vh;
+        left: 30%; }
       main .main-div .form-page .form-div form, main .main-div .account-page .form-div form, main .main-div .add-post .form-div form, main .main-div .reset-token .form-div form, main .main-div .request-token .form-div form {
         border: none; }
         main .main-div .form-page .form-div form fieldset, main .main-div .account-page .form-div form fieldset, main .main-div .add-post .form-div form fieldset, main .main-div .reset-token .form-div form fieldset, main .main-div .request-token .form-div form fieldset {
