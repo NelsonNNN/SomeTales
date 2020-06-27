@@ -1,1 +1,1 @@
-gunicorn "app:my_app" --workers 8
+web: gunicorn "app:my_app" --workers 8
