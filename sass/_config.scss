@@ -1,4 +1,4 @@
-$primary-color: #dafdfd;
+ $primary-color: #dafdfd;
 $secondary-color: #d9ff00;
 $background-opacity: 0.9;
 
@@ -8,9 +8,6 @@ $background-opacity: 0.9;
 
 
 @mixin background($idx, $set) {
-    background-attachment: fixed;
-    background-size: cover;
-
     &:after {
     content: '';
     position: $set;
@@ -34,19 +31,13 @@ $background-opacity: 0.9;
 
 //Media queries
 @mixin smallDevices {
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 525px) {
     @content;
   }
 }
 
 @mixin mediumDevices {
-  @media screen and (max-width: 800px) {
-    @content;
-  }
-}
-
-@mixin largeDevices {
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 768px) {
     @content;
   }
 }

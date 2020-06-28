@@ -3,14 +3,17 @@
   margin: 0;
   padding: 0; }
 
+html {
+  max-width: 100%;
+  height: 100%; }
+
 body {
-  background-attachment: fixed;
-  background-size: cover;
   color: #020024;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
-  height: 100%; }
+  height: 100%;
+  position: relative; }
   body:after {
     content: '';
     position: fixed;
@@ -18,7 +21,7 @@ body {
     right: 0;
     width: 100%;
     height: 100%;
-    z-index: -2;
+    z-index: -1;
     background: linear-gradient(323deg, #020024 0%, rgba(118, 220, 232, 0.801558) 53%, #00d4ff 100%); }
 
 h1,
@@ -41,13 +44,8 @@ header {
     display: inline-block;
     justify-content: space-evenly;
     width: 100%; }
-    header nav div {
-      display: inline-block;
-      margin-bottom: 1rem; }
-      header nav div.right {
-        margin-top: 2.6rem; }
-      header nav div a {
-        margin: 1rem; }
+    header nav a {
+      margin: 1rem; }
     header nav .logo {
       height: 100%;
       width: 10%;
@@ -55,7 +53,7 @@ header {
 
 main {
   margin: 2rem;
-  min-height: 100vh; }
+  height: inherit; }
   main .main-message {
     max-width: fit-content;
     padding: 1rem; }
@@ -63,7 +61,10 @@ main {
       font-size: small; }
   main .main-div {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    position: relative;
+    height: fit-content;
+    min-height: 100%; }
     main .main-div .form-page .title, main .main-div .account-page .title, main .main-div .add-post .title, main .main-div .reset-token .title, main .main-div .request-token .title {
       text-align: center;
       margin-bottom: 2rem;
@@ -83,14 +84,14 @@ main {
         width: 10rem;
         height: 10rem; }
     main .main-div .form-page .form-div, main .main-div .account-page .form-div, main .main-div .add-post .form-div, main .main-div .reset-token .form-div, main .main-div .request-token .form-div {
-      position: relative;
-      top: 10vh;
+      position: absolute;
+      top: 20%;
       margin-left: 4rem;
       background: transparent;
-      width: 50%; }
+      width: 35rem; }
       main .main-div .form-page .form-div.account, main .main-div .account-page .form-div.account, main .main-div .add-post .form-div.account, main .main-div .reset-token .form-div.account, main .main-div .request-token .form-div.account {
-        top: -35vh;
-        left: 30%; }
+        left: 30%;
+        top: 15%; }
       main .main-div .form-page .form-div form, main .main-div .account-page .form-div form, main .main-div .add-post .form-div form, main .main-div .reset-token .form-div form, main .main-div .request-token .form-div form {
         border: none; }
         main .main-div .form-page .form-div form fieldset, main .main-div .account-page .form-div form fieldset, main .main-div .add-post .form-div form fieldset, main .main-div .reset-token .form-div form fieldset, main .main-div .request-token .form-div form fieldset {
@@ -109,9 +110,6 @@ main {
               border-radius: 5px;
               padding: 0.5rem;
               color: #020024; }
-              main .main-div .form-page .form-div form fieldset .input-div .form-input.content, main .main-div .account-page .form-div form fieldset .input-div .form-input.content, main .main-div .add-post .form-div form fieldset .input-div .form-input.content, main .main-div .reset-token .form-div form fieldset .input-div .form-input.content, main .main-div .request-token .form-div form fieldset .input-div .form-input.content {
-                height: 50vh;
-                width: 50vw; }
             main .main-div .form-page .form-div form fieldset .input-div span, main .main-div .account-page .form-div form fieldset .input-div span, main .main-div .add-post .form-div form fieldset .input-div span, main .main-div .reset-token .form-div form fieldset .input-div span, main .main-div .request-token .form-div form fieldset .input-div span {
               width: fit-content;
               background-color: red;
@@ -122,10 +120,9 @@ main {
           width: 100%;
           color: #fff; }
           main .main-div .form-page .form-div form .submit-div .submit-btn, main .main-div .account-page .form-div form .submit-div .submit-btn, main .main-div .add-post .form-div form .submit-div .submit-btn, main .main-div .reset-token .form-div form .submit-div .submit-btn, main .main-div .request-token .form-div form .submit-div .submit-btn {
-            width: 30%;
+            width: 100%;
             padding: 0.3rem;
             border-radius: 5px;
-            margin: 0 7rem;
             color: #fff;
             background-color: #252525;
             font-family: sans-serif;
@@ -192,11 +189,12 @@ main {
             grid-row-end: 2;
             text-align: center; }
           main .main-div .home-page .post-container .article .post-content, main .main-div .edit-post .post-container .article .post-content, main .main-div .about-page .post-container .article .post-content {
-            grid-column-start: 2;
+            grid-column-start: 1;
             grid-column-end: 4;
             grid-row-start: 2;
             grid-row-end: 3;
-            color: #e4f1ff; }
+            color: #e4f1ff;
+            text-align: center; }
         main .main-div .home-page .post-container .pages, main .main-div .edit-post .post-container .pages, main .main-div .about-page .post-container .pages {
           display: flex;
           flex-wrap: wrap; }
@@ -225,3 +223,53 @@ main {
             main .main-div .home-page .post-container .pages .other-pages:hover, main .main-div .edit-post .post-container .pages .other-pages:hover, main .main-div .about-page .post-container .pages .other-pages:hover {
               color: #ffff;
               background: #020024; }
+    main .main-div footer {
+      width: calc(100% + 4rem);
+      color: white;
+      background: black;
+      position: absolute;
+      left: calc(0% - 2rem);
+      bottom: calc(0% - 7rem);
+      padding: 2rem; }
+
+@media screen and (max-width: 768px) {
+  body header a:first-child {
+    border: none; }
+  body header a {
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid white; }
+  body main .main-div .form-page .form-div, body main .main-div .account-page .form-div, body main .main-div .add-post .form-div, body main .main-div .reset-token .form-div, body main .main-div .request-token .form-div {
+    margin: 0;
+    width: 25rem; } }
+
+@media screen and (max-width: 525px) {
+  body main .main-div .form-page, body main .main-div .account-page, body main .main-div .add-post, body main .main-div .reset-token, body main .main-div .request-token {
+    display: flex;
+    flex-direction: column; }
+    body main .main-div .form-page .personal-info, body main .main-div .account-page .personal-info, body main .main-div .add-post .personal-info, body main .main-div .reset-token .personal-info, body main .main-div .request-token .personal-info {
+      text-align: center; }
+    body main .main-div .form-page .form-div, body main .main-div .account-page .form-div, body main .main-div .add-post .form-div, body main .main-div .reset-token .form-div, body main .main-div .request-token .form-div {
+      margin-left: 0;
+      width: unset; }
+    body main .main-div .form-page .account, body main .main-div .account-page .account, body main .main-div .add-post .account, body main .main-div .reset-token .account, body main .main-div .request-token .account {
+      position: unset;
+      width: 100%;
+      margin: 3rem 0;
+      margin-bottom: 0; }
+  body main .main-div .home-page .post-container .article, body main .main-div .edit-post .post-container .article, body main .main-div .about-page .post-container .article {
+    grid-template-columns: 0;
+    grid-template-rows: auto auto auto; }
+    body main .main-div .home-page .post-container .article .post-image, body main .main-div .edit-post .post-container .article .post-image, body main .main-div .about-page .post-container .article .post-image {
+      grid-column: 1;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      text-align: center; }
+    body main .main-div .home-page .post-container .article .post-author, body main .main-div .edit-post .post-container .article .post-author, body main .main-div .about-page .post-container .article .post-author {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      text-align: center; }
+    body main .main-div .home-page .post-container .article .post-content, body main .main-div .edit-post .post-container .article .post-content, body main .main-div .about-page .post-container .article .post-content {
+      grid-row-start: 3;
+      grid-row-end: 4;
+      color: #e4f1ff; } }

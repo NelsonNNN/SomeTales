@@ -5,15 +5,20 @@
     margin: 0;
     padding: 0;
 }
+html{
+    max-width: 100%;
+    height: 100%;
+}
 
 //layout.html
 body {
-    @include background(-2, fixed);
+    @include background(-1, fixed);
     color: set-text-color($primary-color);
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5;
     height: 100%;
+    position: relative;
 } 
 
 h1,
@@ -43,15 +48,8 @@ header{
         justify-content: space-evenly;
         width: 100%;
 
-        div{
-            display: inline-block;
-            margin-bottom: 1rem;
-            &.right{
-                margin-top: 2.6rem;
-            }
-            a{
-                margin: 1rem;
-            }
+        a{
+            margin: 1rem;
         }
         .logo{
             height: 100%;
@@ -63,7 +61,7 @@ header{
 
 main{
     margin: 2rem;
-    min-height: 100vh;
+    height: inherit;
     .main-message{
         max-width: fit-content;
         padding: 1rem;
@@ -75,6 +73,9 @@ main{
     .main-div{
         display: flex;
         flex-direction: column;
+        position: relative;
+        height: fit-content;
+        min-height: 100%;
 
         //login.html, account.html, addpost.html, request-token.html, reset-token.html
         .form-page, .account-page, .add-post, .reset-token, .request-token{
@@ -104,14 +105,14 @@ main{
                 }
             }
             .form-div{
-                position: relative;
-                top: 10vh;
+                position: absolute;
+                top: 20%;
                 margin-left: 4rem;
                 background: transparent;
-                width: 50%;
+                width: 35rem;
                 &.account{
-                    top: -35vh;
                     left: 30%;
+                    top: 15%;
                 }
 
                 form{
@@ -134,10 +135,6 @@ main{
                                 border-radius: 5px;
                                 padding: 0.5rem;
                                 color: set-text-color($primary-color);
-                                &.content{
-                                    height: 50vh;
-                                    width: 50vw;
-                                }
                             }
                             span{
                                 width: fit-content;
@@ -153,10 +150,9 @@ main{
                         width: 100%;
                         color: set_text_color(rgb(37, 37, 37) );
                         .submit-btn{
-                            width: 30%;
+                            width: 100%;
                             padding: 0.3rem;
                             border-radius: 5px;
-                            margin: 0 7rem;
                             color: set_text_color(rgb(37, 37, 37) );
                             background-color: rgb(37, 37, 37) ;
                             font-family: sans-serif;
@@ -248,11 +244,12 @@ main{
                         text-align: center;
                    }
                    .post-content{
-                        grid-column-start: 2;
+                        grid-column-start: 1;
                         grid-column-end: 4;
                         grid-row-start: 2;
                         grid-row-end: 3;
                         color: rgb(228, 241, 255);
+                        text-align: center;
                    }
                 }
                 .pages{
@@ -290,5 +287,18 @@ main{
                 }
             }
         }
+        footer{
+            width:calc(100% + 4rem);
+            color: white;
+            background: black;
+            position: absolute;
+            left: calc(0% - 2rem);
+            bottom: calc(0% - 7rem);
+            padding: 2rem;
+        }
     }
+    
 }
+
+
+@import 'mobile';
