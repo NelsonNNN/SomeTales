@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\app",
+    "\\app\\main",
+    "\\app\\posts"
   ],
-  "SelectedNode": "\\C:\\Users\\nelli\\OneDrive\\Documents\\Github\\SomeTales",
+  "SelectedNode": "\\app\\main\\routes.py",
   "PreviewInSolutionExplorer": false
 }
