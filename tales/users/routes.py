@@ -1,9 +1,9 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from tales import db, bcrypt
-from tales.models import User, Post
-from tales.users.forms import RegistrationForm, LoginForm, UpdateForm, ResetRequest, ResetPassword
-from tales.users.utils import save_image, send_reset_email
+from models import User, Post
+from users.forms import RegistrationForm, LoginForm, UpdateForm, ResetRequest, ResetPassword
+from users.utils import save_image, send_reset_email
 
 users = Blueprint('users', __name__)
 
