@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\tales",
+    "\\tales\\posts",
     "\\tales\\users"
   ],
-  "SelectedNode": "\\app.py",
+  "SelectedNode": "\\tales\\config.py",
   "PreviewInSolutionExplorer": false
 }

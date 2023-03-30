@@ -1,5 +1,5 @@
 from flask import render_template, request, Blueprint
-from models import Post
+from tales.models import Post
 
 main = Blueprint('main', __name__)
 
@@ -12,4 +12,4 @@ def home():
 
 @main.route('/about/')
 def about():  
-    return render_template('about.html', title='About')`
+    return render_template('about.html', title='About')
