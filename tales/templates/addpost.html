@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class='add-post'>
+        <div class="title">
+            <h1>Add a Blog Post here</h1>
+        </div>
+        <div class="form-div">
+            <form method='POST' action = "">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend>{{legend}}</legend>
+                    <div class="input-div">
+                        {{ form.title.label (class_="form-label")}}
+                        {% if form.title.errors %}
+                            {{form.title (class_="form-input") }}
+                            <div  class="error-div">
+                                {% for error in form.title.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {%else %}
+                            {{ form.title (class_="form-input")}}
+                        {% endif %}
+                    </div>
+                    <div class="input-div">
+                        {{ form.content.label (class_="form-label")}}
+                        {% if form.content.errors %}
+                            {{ form.content (class_='form-input content')}}
+                            <div class="error-div">
+                                {% for error in form.content.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {%else %}
+                            {{ form.content (class_='form-input content')}}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="submit-div">
+                    {{ form.submit (class_="submit-btn") }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock  %}

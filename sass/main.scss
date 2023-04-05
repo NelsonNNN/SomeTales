@@ -1,0 +1,304 @@
+@import 'config';
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    max-width: 100%;
+    height: 100%;
+}
+
+//layout.html
+body {
+    @include background(-1, fixed);
+    color: set-text-color($primary-color);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    height: 100%;
+    position: relative;
+} 
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-color;
+    @include easeOut;
+
+    &:hover{
+        color: $secondary-color;
+    }
+}
+
+//layout.html
+header{
+    width: 100%;
+
+    nav{
+        background-color: rgb(37, 37, 37);
+        display: inline-block;
+        justify-content: space-evenly;
+        width: 100%;
+
+        a{
+            margin: 1rem;
+        }
+        .logo{
+            height: 100%;
+            width: 10%;
+            border-radius: 70%;
+        }
+    }
+}
+
+main{
+    margin: 2rem;
+    height: inherit;
+    .main-message{
+        max-width: fit-content;
+        padding: 1rem;
+
+        span{
+            font-size: small;
+        }
+    }
+    .main-div{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: fit-content;
+        min-height: 100%;
+
+        //login.html, account.html, addpost.html, request-token.html, reset-token.html
+        .form-page, .account-page, .add-post, .reset-token, .request-token{
+            .title{
+                text-align: center;
+                margin-bottom: 2rem;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    border-bottom: 2px solid;
+                    right: 0;
+
+                }
+            }
+            .personal-info{
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                top: 2vh;
+                .image{
+                    img{
+                        width: 10rem;
+                        height: 10rem;
+                    }
+                }
+            }
+            .form-div{
+                position: absolute;
+                top: 20%;
+                margin-left: 4rem;
+                background: transparent;
+                width: 35rem;
+                &.account{
+                    left: 30%;
+                    top: 15%;
+                }
+
+                form{
+                    border: none;
+                    fieldset{
+                        border: none;
+                        display: flex;
+                        flex-direction: column;
+
+                        .input-div{
+                            margin: 1rem;
+                            .form-label{
+                                margin: 0.5rem;
+                            }
+                            .form-input{
+                                background: transparent;
+                                border: none;
+                                border-bottom: 1px solid white;
+                                width: 100%;
+                                border-radius: 5px;
+                                padding: 0.5rem;
+                                color: set-text-color($primary-color);
+                            }
+                            span{
+                                width: fit-content;
+                                background-color: red;
+                                color: white;
+                            }
+                            .remember{
+                                font-size: small;
+                            }
+                        }
+                    }
+                    .submit-div{
+                        width: 100%;
+                        color: set_text_color(rgb(37, 37, 37) );
+                        .submit-btn{
+                            width: 100%;
+                            padding: 0.3rem;
+                            border-radius: 5px;
+                            color: set_text_color(rgb(37, 37, 37) );
+                            background-color: rgb(37, 37, 37) ;
+                            font-family: sans-serif;
+                            @include easeOut;
+
+                            &:hover{
+                                opacity: 0.6;
+                            }
+                        }
+                    }
+                    .request{
+                        a{
+                            color: $secondary-color;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        //home.html, editpost.html, user.html, about.html
+        .home-page, .edit-post, .about-page{
+            min-height: 100vh;
+            .title{
+                text-align: center;
+                margin-bottom: 2rem;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    border-bottom: 2px solid;
+                    right: 0;
+
+                }
+            }
+            .post-container{
+                display: flex;
+                flex-direction: column;
+                margin: 1rem;
+                .edit-btns{
+                    display: flex;
+                    justify-content: space-evenly;
+                    background: rgba(2, 0, 36, 0.527);
+                    width: 60%;
+                    form{
+                        border: none;
+                        input{
+                            background: transparent;
+                            color: #ffff;
+                            font-family: inherit;
+                            font-size: inherit;
+                            border: none;
+                        }
+                    }
+                }
+                .article{
+                    display: grid;
+                    grid-template-columns: 25% 25% 50%;
+                    grid-template-rows: auto auto;
+                    margin: 1rem 0;
+                    background: rgba(2, 0, 36, 0.527);
+                    padding: 0.5rem;
+                    a{
+                        color: rgba(242, 247, 250, 0.356);
+                        font-size: 2rem;
+                        @include easeOut;
+                        &:hover{
+                            color: $secondary-color;
+                        }
+                    }
+
+                   .post-image{
+                        grid-column-start: 1;
+                        grid-column-end: 2;
+                        grid-row-start: 1;
+                        grid-row-end: 2;
+                        border-radius: 50%;
+                        img{
+                            margin-left: 25%;
+                            border-radius: 50%;
+                        }
+                   } 
+                   .post-author{
+                        grid-column-start: 2;
+                        grid-column-end: 4;
+                        grid-row-start: 1;
+                        grid-row-end: 2;
+                        text-align: center;
+                   }
+                   .post-content{
+                        grid-column-start: 1;
+                        grid-column-end: 4;
+                        grid-row-start: 2;
+                        grid-row-end: 3;
+                        color: rgb(228, 241, 255);
+                        text-align: center;
+                   }
+                }
+                .pages{
+                    display: flex;
+                    flex-wrap: wrap;
+                    .current-page{
+                        padding: 0 0.5rem;
+                        border: 1px solid rgba(2,0,36,1);
+                        border-radius: 1px;
+                        color: #ffff;
+                        background: rgba(2,0,36,1);
+                        height: fit-content;
+                        width: fit-content;
+                        margin-right: 0.5rem;
+                        @include easeOut;
+                        &:hover{
+                            opacity: 0.6;
+                        }
+                    }
+                    .other-pages{
+                        padding: 0 0.5rem;
+                        border: 1px solid rgba(2,0,36,1);
+                        border-radius: 1px;
+                        color: rgba(2,0,36,1);
+                        background:transparent;
+                        height: fit-content;
+                        width: fit-content;
+                        margin-right: 0.5rem;
+                        @include easeOut;
+                        &:hover{
+                            color: #ffff;
+                            background: rgba(2,0,36,1);
+                        }
+                    }
+                }
+            }
+        }
+        footer{
+            width:calc(100% + 4rem);
+            color: white;
+            background: black;
+            position: absolute;
+            left: calc(0% - 2rem);
+            bottom: calc(0% - 7rem);
+            padding: 2rem;
+        }
+    }
+    
+}
+
+
+@import 'mobile';

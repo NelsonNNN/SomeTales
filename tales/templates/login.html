@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="form-page">
+        <div class="title">
+            <h1>Welcome back User</h1>
+        </div>
+        <div class="form-div">
+            <form method='POST' action = "">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend>Login</legend>
+                    <div class="input-div">  
+                        {{ form.email.label (class_="form-label") }}
+                            {% if form.email.errors %}
+                                {{ form.email(class_="form-input") }}
+                                <div class="error-div">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else%}
+                                {{ form.email(class_='form-input') }}
+                            {% endif %}
+                    </div>
+                    <div class="input-div">
+                        {{ form.password.label(class_="form-label") }}
+                            {% if form.password.errors %}
+                                {{ form.password(class_="form-input") }}
+                                    {% for error in form.password.errors %}
+                                    <div class="error-div">
+                                        <span>{{ error }}</span>
+                                    </div>
+                                    {% endfor %}
+                            {% else %}
+                                {{ form.password(class_='form-input') }}
+                            {% endif %}
+                    </div>
+                    <div class="input-div">
+                        {{ form.remember.label(class_="remember") }}
+                        {{ form.remember }}
+                    </div>
+                </fieldset>
+                <div class="submit-div">
+                    {{ form.submit(class_="submit-btn") }}               
+                </div>
+                <small>
+                    <a href={{url_for('users.reset_request')}} >Forgot Password</a>
+                </small>
+                <div class="request">
+                    <small>Need an account?Click <a href = {{ url_for('users.registration') }}>here</a></small>
+                </div>   
+            </form> 
+        </div> 
+    </div>   
+{% endblock %}

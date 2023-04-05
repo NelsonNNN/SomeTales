@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="reset-token">
+        <div class="title">
+            <h1> Reset Your Password</h1>
+        </div>
+        <div class="form-div">
+            <form  method='POST', action="">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend>Reset Password</legend>
+                        <div class="input-div">
+                            {{ form.password.label (class_="form-label") }}
+                                {% if form.password.errors %}
+                                    {{ form.password(class_="form-input") }}
+                                    <div class="error-div">
+                                        {% for error in form.password.errors %}
+                                            <span>{{ error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{form.password(class_='form-input') }}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="input-div">
+                            {{ form.confirm_password.label(class_="form-label") }}
+                                {% if form.confirm_password.errors %}
+                                    {{ form.confirm_password(class_="form-input") }}
+                                    <div class="error-div">
+                                        {% for error in form.confirm_password.errors %}
+                                            <span>{{ error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{form.confirm_password(class_="form-input") }}
+                                {% endif %}
+                            </div>
+                        </div>
+                </fieldset> 
+                <div class="submit-div">
+                    {{ form.submit(class_="submit-btn") }}
+                </div>            
+            </form>
+        </div>
+    </div>
+{% endblock %}

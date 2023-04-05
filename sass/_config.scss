@@ -1,0 +1,43 @@
+ $primary-color: #dafdfd;
+$secondary-color: #d9ff00;
+$background-opacity: 0.9;
+
+@mixin easeOut {
+  transition: all 0.3s ease-out;
+}
+
+
+@mixin background($idx, $set) {
+    &:after {
+    content: '';
+    position: $set;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: $idx;
+    background: linear-gradient(323deg, rgba(2,0,36,1) 0%, rgba(118,220,232,0.8015581232492998) 53%, rgba(0,212,255,1) 100%);
+    }
+}
+
+// Set Text Color
+@function set-text-color($color) {
+  @if (lightness($color) > 20) {
+    @return rgba(2,0,36,1);
+  } @else {
+    @return #fff;
+  }
+}
+
+//Media queries
+@mixin smallDevices {
+  @media screen and (max-width: 525px) {
+    @content;
+  }
+}
+
+@mixin mediumDevices {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}

@@ -1,0 +1,70 @@
+@include mediumDevices{
+    body{
+        header{
+            a:first-child{
+                border:none;
+            }
+            a{
+                display: block;
+                text-align: center;
+                border-bottom: 1px solid white;
+            }
+        }
+        main .main-div{
+            .form-page, .account-page, .add-post, .reset-token, .request-token{
+                .form-div{
+                    margin: 0;
+                    width: 25rem;
+                }
+            }
+        }
+    }
+}
+
+@include smallDevices{
+    body{
+        main{
+            .main-div{
+                .form-page, .account-page, .add-post, .reset-token, .request-token{
+                    display: flex;
+                    flex-direction: column;
+                    .personal-info{
+                        text-align: center;
+                    }
+                    .form-div{
+                        margin-left: 0;
+                        width: unset;
+                    }
+                    .account{
+                        position: unset;
+                        width: 100%;
+                        margin: 3rem 0;
+                        margin-bottom: 0;
+                    }
+                }
+                .home-page, .edit-post, .about-page{
+                    .post-container .article{
+                        grid-template-columns: 0;
+                        grid-template-rows: auto auto auto;
+                        .post-image{
+                            grid-column: 1;
+                            grid-row-start: 1;
+                            grid-row-end: 2;
+                            text-align: center;
+                        }
+                        .post-author{
+                            grid-row-start: 2;
+                            grid-row-end: 3;
+                            text-align: center;
+                       }
+                       .post-content{
+                            grid-row-start: 3;
+                            grid-row-end: 4;
+                            color: rgb(228, 241, 255);
+                       }
+                    }
+                }
+            }
+        }
+    }
+}

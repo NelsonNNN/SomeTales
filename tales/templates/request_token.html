@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="request-token">
+        <div class="title">
+            <h1> Request for password reset</h1>
+        </div>
+        <div class="form-div">
+            <form  method='POST', action="">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend>Reset Password</legend>
+                        <div class="input-div">
+                            {{ form.email.label(class_="form-label") }}
+                            <div>
+                                {% if form.email.errors %}
+                                    {{ form.email(class_="form-input") }}
+                                    <div  class="error-div">
+                                        {% for error in form.email.errors %}
+                                            <span>{{ error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{form.email(class_='form-input') }}
+                                {% endif %}
+                            </div>
+                        </div>
+                </fieldset> 
+                <div class="submit-div">
+                    {{ form.submit(class_="submit-btn") }}
+                </div>            
+            </form>
+        </div>
+    </div>
+{% endblock %}
